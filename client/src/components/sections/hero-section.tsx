@@ -9,26 +9,26 @@ export function HeroSection() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 md:mb-16 text-center">
-          <div className="inline-block mb-6 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800">
+          <div className="inline-block mb-6 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 fade-in-up">
             <span className="text-purple-800 dark:text-purple-300 text-sm font-medium flex items-center">
               Latest Version 5.5
-              <span className="ml-2 px-1.5 py-0.5 text-xs rounded bg-purple-200 dark:bg-purple-700 text-purple-800 dark:text-purple-200">
+              <span className="ml-2 px-1.5 py-0.5 text-xs rounded bg-purple-200 dark:bg-purple-700 text-purple-800 dark:text-purple-200 pulse">
                 NEW
               </span>
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Master software testing<br className="hidden md:block" /> with <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-900 via-purple-700 to-purple-800">QualitySensei</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in-up delay-100">
+            Master software testing<br className="hidden md:block" /> with <span className="gradient-text gradient-text-primary">QualitySensei</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 fade-in-up delay-200">
             Structured courses, hands-on labs, and expert-written blogs to take your QA skills from beginner to advanced. Built with Astro and React 19.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 fade-in-up delay-300">
             <Link href="/courses">
-              <Button className="w-full sm:w-auto bg-gradient-to-r from-purple-900 via-purple-700 to-purple-800 hover:opacity-90 text-white px-6 py-6 h-auto">
+              <Button className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-white px-6 py-6 h-auto btn-hover-effect">
                 Explore Courses
               </Button>
             </Link>

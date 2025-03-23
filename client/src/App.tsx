@@ -10,6 +10,8 @@ import Blog from "@/pages/blog";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "./context/theme-provider";
+import { useEffect } from "react";
+import { initAnimations } from "./lib/animations";
 
 function Router() {
   return (
@@ -24,6 +26,12 @@ function Router() {
 }
 
 function App() {
+  // Initialize animations
+  useEffect(() => {
+    // Initialize animations on mount
+    initAnimations();
+  }, []);
+  
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
