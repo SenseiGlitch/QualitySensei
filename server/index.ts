@@ -2,6 +2,11 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { createServer } from "http";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const server = createServer(app);
@@ -9,7 +14,7 @@ const server = createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Middleware for Logging
+// Logging middleware
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -28,11 +33,9 @@ app.use((req, res, next) => {
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
-
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
       log(logLine);
     }
   });
@@ -40,35 +43,38 @@ app.use((req, res, next) => {
   next();
 });
 
-// Register API routes
+// Register routes
 registerRoutes(app);
 
-// Error Handling Middleware
+// Error handler
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   const status = err.status || err.statusCode || 500;
   const message = err.message || "Internal Server Error";
-
   console.error(`❌ Error: ${status} - ${message}`);
   res.status(status).json({ message });
 });
 
-// ✅ Set port dynamically for dev/prod (default: 65444)
-const PORT = process.env.PORT || 65444;
-const isDev = app.get("env") === "development";
+// Dev vs Prod setup
+const isDev = process.env.NODE_ENV !== "production";
+const PORT = Number(process.env.PORT) || 5566;
 
-// ✅ Setup Vite in development mode
 (async () => {
   if (isDev) {
     console.log("🚀 Running in Development Mode (with Vite)");
     await setupVite(app, server);
   } else {
     console.log("⚡ Running in Production Mode (Serving Static Files)");
-    serveStatic(app);
+
+    // Serve dist/public in production
+    const staticPath = path.join(__dirname, "public");
+    app.use(express.static(staticPath));
+
+    app.get("*", (_req, res) => {
+      res.sendFile(path.join(staticPath, "index.html"));
+    });
   }
 
-  const PORT = Number(process.env.PORT) || 5566; // Ensure PORT is a number
-
   server.listen(PORT, "0.0.0.0", () => {
-    log(`🚀 Server running on http://localhost:${PORT} (${isDev ? "Development" : "Production"})`);
+    log(`🚀 Server running on http://localhost:${PORT} (${isDev ? "Dev" : "Prod"})`);
   });
 })();
