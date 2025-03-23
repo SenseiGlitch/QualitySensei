@@ -54,27 +54,33 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   res.status(status).json({ message });
 });
 
-// Dev vs Prod setup
+// Configuration
 const isDev = process.env.NODE_ENV !== "production";
-const PORT = Number(process.env.PORT) || 5566;
+const PORT = Number(process.env.PORT) || 7001;
 
-(async () => {
+// Vercel deployment handler
+const vercelHandler = async () => {
   if (isDev) {
-    console.log("🚀 Running in Development Mode (with Vite)");
     await setupVite(app, server);
   } else {
-    console.log("⚡ Running in Production Mode (Serving Static Files)");
-
-    // Serve dist/public in production
     const staticPath = path.join(__dirname, "public");
     app.use(express.static(staticPath));
-
     app.get("*", (_req, res) => {
       res.sendFile(path.join(staticPath, "index.html"));
     });
   }
+  return app;
+};
 
-  server.listen(PORT, "0.0.0.0", () => {
-    log(`🚀 Server running on http://localhost:${PORT} (${isDev ? "Dev" : "Prod"})`);
-  });
-})();
+// Local server startup
+if (process.env.VERCEL !== "1") {
+  (async () => {
+    await vercelHandler();
+    server.listen(PORT, "0.0.0.0", () => {
+      log(`🚀 Server running on http://localhost:${PORT} (${isDev ? "Dev" : "Prod"})`);
+    });
+  })();
+}
+
+// Export for Vercel
+export default vercelHandler();
