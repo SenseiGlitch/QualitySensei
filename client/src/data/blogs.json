@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Effective Test Automation Strategies for Modern Applications",
+    "description": "Learn how to implement scalable test automation frameworks that stand the test of time and team changes.",
+    "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "date": "Jun 15, 2023",
+    "readTime": "8 min read"
+  },
+  {
+    "id": 2,
+    "title": "API Testing Best Practices in a Microservices World",
+    "description": "Discover how to implement effective API testing strategies in complex microservice architectures.",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "date": "May 22, 2023",
+    "readTime": "6 min read"
+  },
+  {
+    "id": 3,
+    "title": "The Complete Guide to Performance Testing Modern Web Applications",
+    "description": "Learn how to identify performance bottlenecks and ensure your application scales under load.",
+    "image": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "date": "Apr 10, 2023",
+    "readTime": "10 min read"
+  }
+]
