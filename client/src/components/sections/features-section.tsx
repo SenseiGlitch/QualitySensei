@@ -34,11 +34,10 @@ export function FeaturesSection() {
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {feature.description}
               </p>
-              <Link href={feature.link}>
-                <a className={`inline-flex items-center ${feature.color.includes("primary") ? "text-primary-600 dark:text-primary-400" : feature.color.includes("secondary") ? "text-secondary-600 dark:text-secondary-400" : "text-purple-600 dark:text-purple-400"} font-medium`}>
-                  {feature.linkText}
-                  <ArrowRight className="h-4 w-4 ml-1" />
-                </a>
+              <Link href={feature.link} 
+                className={`inline-flex items-center ${feature.color.includes("primary") ? "text-primary-600 dark:text-primary-400" : feature.color.includes("secondary") ? "text-secondary-600 dark:text-secondary-400" : "text-purple-600 dark:text-purple-400"} font-medium`}>
+                {feature.linkText}
+                <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </div>
           ))}

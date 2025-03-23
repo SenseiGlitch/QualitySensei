@@ -34,8 +34,11 @@ export function CoursesSection() {
               <div className={`h-48 relative ${course.gradientClass} overflow-hidden`}>
                 <img 
                   src={course.image} 
-                  alt={course.title} 
+                  alt={course.title}
+                  width="800"
+                  height="450"
                   className="w-full h-full object-cover mix-blend-overlay"
+                  loading="lazy"
                 />
                 <div className={`absolute top-4 right-4 bg-white dark:bg-gray-800 ${course.levelColor} px-2 py-1 rounded-md text-sm font-medium`}>
                   {course.level}

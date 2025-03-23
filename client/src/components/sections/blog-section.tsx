@@ -29,7 +29,10 @@ export function BlogSection() {
               <div className="h-48 overflow-hidden">
                 <img 
                   src={blog.image} 
-                  alt={blog.title} 
+                  alt={blog.title}
+                  width="800"
+                  height="450" 
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -48,11 +51,10 @@ export function BlogSection() {
               </div>
               
               <div className="px-6 pb-6 mt-auto">
-                <Link href={`/blog/${blog.id}`}>
-                  <a className="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
-                    Read Article
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </a>
+                <Link href={`/blog/${blog.id}`}
+                  className="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
+                  Read Article
+                  <ArrowRight className="h-4 w-4 ml-1" />
                 </Link>
               </div>
             </article>
