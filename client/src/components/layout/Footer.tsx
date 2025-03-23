@@ -9,10 +9,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <Link href="/">
-              <a className="flex items-center space-x-2 mb-6">
+            <Link href="/" className="flex items-center space-x-2 mb-6">
                 <Logo />
-              </a>
             </Link>
             
             <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -48,24 +46,18 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6">Platform</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/courses">
-                  <a className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <Link href="/courses" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                     Courses
-                  </a>
                 </Link>
               </li>
               <li>
-                <Link href="/labs">
-                  <a className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <Link href="/labs" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                     Practical Labs
-                  </a>
                 </Link>
               </li>
               <li>
-                <Link href="/blog">
-                  <a className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <Link href="/blog" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                     Blog
-                  </a>
                 </Link>
               </li>
               <li>

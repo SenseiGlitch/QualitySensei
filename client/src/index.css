@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import animations and transitions */
+@import './styles/animations.css';
+
 @layer base {
   * {
     @apply border-border;
@@ -10,4 +13,17 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+}
+
+/* Custom Gradients */
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-800;
+}
+
+.bg-gradient-secondary {
+  @apply bg-gradient-to-r from-blue-900 via-blue-700 to-blue-800;
+}
+
+.bg-gradient-accent {
+  @apply bg-gradient-to-r from-violet-900 via-violet-700 to-violet-800;
 }
