@@ -249,3 +249,22 @@ img {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Company logo animations */
+.company-logo {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* Theme transition */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition-duration: 1000ms !important;
+  transition-delay: 0s !important;
+}

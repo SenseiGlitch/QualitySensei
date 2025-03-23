@@ -63,10 +63,88 @@ export function enhanceCards() {
 }
 
 /**
+ * Applies gradient text effect to elements with specific classes
+ */
+export function enhanceGradientText() {
+  // Add smooth gradient text animation to elements with gradient-text class
+  const gradientElements = document.querySelectorAll('[class*="gradient-text"]:not(.gradient-text-animated)');
+  gradientElements.forEach((element) => {
+    element.classList.add('gradient-text-animated');
+  });
+}
+
+/**
+ * Initializes parallax scrolling effect on elements
+ */
+export function initParallaxEffect() {
+  const parallaxElements = document.querySelectorAll('.parallax');
+  
+  const handleParallaxScroll = () => {
+    const scrollTop = window.pageYOffset;
+    
+    parallaxElements.forEach((element) => {
+      const speed = element.getAttribute('data-parallax-speed') || '0.5';
+      const yPos = -(scrollTop * parseFloat(speed));
+      element.setAttribute('style', `transform: translate3d(0, ${yPos}px, 0)`);
+    });
+  };
+  
+  window.addEventListener('scroll', handleParallaxScroll);
+  handleParallaxScroll(); // Initial call
+  
+  return () => {
+    window.removeEventListener('scroll', handleParallaxScroll);
+  };
+}
+
+/**
+ * Attaches animation to theme toggle for smooth transition
+ */
+export function enhanceThemeToggle() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  
+  if (themeToggle) {
+    if (!themeToggle.classList.contains('theme-toggle-enhanced')) {
+      themeToggle.classList.add('theme-toggle-enhanced');
+      themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.add('theme-transition');
+        setTimeout(() => {
+          document.documentElement.classList.remove('theme-transition');
+        }, 1000);
+      });
+    }
+  }
+}
+
+/**
  * Initialize all animations and enhancements
  */
 export function initAnimations() {
+  // Initialize our animation enhancements
   initScrollAnimations();
   enhanceButtons();
   enhanceCards();
+  enhanceGradientText();
+  initParallaxEffect();
+  enhanceThemeToggle();
+  
+  // Add MutationObserver to handle dynamically loaded elements
+  const bodyObserver = new MutationObserver((mutations) => {
+    // Re-run our enhancements when DOM changes
+    enhanceButtons();
+    enhanceCards();
+    enhanceGradientText();
+    enhanceThemeToggle();
+  });
+  
+  // Start observing
+  bodyObserver.observe(document.body, { 
+    childList: true, 
+    subtree: true 
+  });
+  
+  // Return cleanup function
+  return () => {
+    bodyObserver.disconnect();
+  };
 }

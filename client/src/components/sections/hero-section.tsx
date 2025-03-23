@@ -5,7 +5,13 @@ import { Link } from "wouter";
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-white dark:bg-gray-900 pt-16 md:pt-24 pb-16">
+      {/* Background elements with parallax effect */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-100/40 dark:from-purple-900/20 via-transparent to-transparent"></div>
+      
+      {/* Floating orbs with parallax effect */}
+      <div className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-purple-300/10 dark:bg-purple-700/10 blur-3xl parallax" data-parallax-speed="0.3"></div>
+      <div className="absolute bottom-20 right-[5%] w-80 h-80 rounded-full bg-blue-300/10 dark:bg-blue-700/10 blur-3xl parallax" data-parallax-speed="0.2"></div>
+      <div className="absolute top-1/2 left-[40%] w-40 h-40 rounded-full bg-violet-300/10 dark:bg-violet-700/10 blur-3xl parallax" data-parallax-speed="0.4"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 md:mb-16 text-center">
@@ -43,23 +49,23 @@ export function HeroSection() {
         {/* Terminal Component */}
         <Terminal className="mb-16" />
         
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center fade-in-up delay-500">
           <p className="text-gray-500 dark:text-gray-400 mb-6">Trusted by testing teams worldwide</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-70 dark:opacity-50">
-            <div className="flex justify-center">
-              <img className="h-8" src="https://simpleicons.org/icons/google.svg" alt="Google" />
+            <div className="flex justify-center scale-in delay-100">
+              <img className="h-8 company-logo" src="https://simpleicons.org/icons/google.svg" alt="Google" width="32" height="32" loading="lazy" />
             </div>
-            <div className="flex justify-center">
-              <img className="h-8" src="https://simpleicons.org/icons/microsoft.svg" alt="Microsoft" />
+            <div className="flex justify-center scale-in delay-200">
+              <img className="h-8 company-logo" src="https://simpleicons.org/icons/microsoft.svg" alt="Microsoft" width="32" height="32" loading="lazy" />
             </div>
-            <div className="flex justify-center">
-              <img className="h-8" src="https://simpleicons.org/icons/apple.svg" alt="Apple" />
+            <div className="flex justify-center scale-in delay-300">
+              <img className="h-8 company-logo" src="https://simpleicons.org/icons/apple.svg" alt="Apple" width="32" height="32" loading="lazy" />
             </div>
-            <div className="flex justify-center">
-              <img className="h-8" src="https://simpleicons.org/icons/amazon.svg" alt="Amazon" />
+            <div className="flex justify-center scale-in delay-400">
+              <img className="h-8 company-logo" src="https://simpleicons.org/icons/amazon.svg" alt="Amazon" width="32" height="32" loading="lazy" />
             </div>
-            <div className="flex justify-center">
-              <img className="h-8" src="https://simpleicons.org/icons/meta.svg" alt="Meta" />
+            <div className="flex justify-center scale-in delay-500">
+              <img className="h-8 company-logo" src="https://simpleicons.org/icons/meta.svg" alt="Meta" width="32" height="32" loading="lazy" />
             </div>
           </div>
         </div>
