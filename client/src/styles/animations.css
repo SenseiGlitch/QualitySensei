@@ -53,16 +53,16 @@
 .delay-500 { transition-delay: 500ms; }
 
 /* ===== Theme Transition ===== */
-/* Smooth transition between light and dark themes */
+/* Quick transition between light and dark themes */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition-duration: 150ms; /* Faster color transitions */
 }
 
 /* Make images transition smoothly when switching themes */
 img {
-  transition: filter 300ms ease-in-out;
+  transition: filter 150ms ease-in-out;
 }
 
 /* ===== Gradients ===== */
@@ -265,6 +265,6 @@ img {
 .theme-transition *,
 .theme-transition *::before,
 .theme-transition *::after {
-  transition-duration: 1000ms !important;
+  transition-duration: 300ms !important;
   transition-delay: 0s !important;
 }
